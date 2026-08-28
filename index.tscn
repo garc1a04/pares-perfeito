@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://bpa7n72ji3t6a"]
 
 [node name="Index" type="Node2D" unique_id=1160205190]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1748387860]
+offset_left = 492.0
+offset_top = 88.0
+offset_right = 610.8
+offset_bottom = 128.0
+scale = Vector2(2.5, 2.5)
+text = "Pares Perfeito"
+
+[node name="Button" type="Button" parent="." unique_id=2090841595]
+offset_left = 567.0
+offset_top = 494.0
+offset_right = 674.0
+offset_bottom = 532.0
+text = "PLAY"

@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://b0lwqsnjkcdtd"]
 
+[ext_resource type="PackedScene" uid="uid://2drq7cgyua6g" path="res://share/Component/card/card.tscn" id="1_014g0"]
+[ext_resource type="Script" uid="uid://dc2ngwv31pid" path="res://world/world1/card.gd" id="1_f17rd"]
+
 [node name="Index" type="Node2D" unique_id=1595145837]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=235291910]
+offset_right = 1280.0
+offset_bottom = 715.0
+color = Color(0, 0.4, 0.2, 1)
+
+[node name="CardManager" type="Node2D" parent="." unique_id=996822690]
+position = Vector2(-1, -1)
+scale = Vector2(2, 2)
+script = ExtResource("1_f17rd")
+
+[node name="Card" parent="CardManager" unique_id=390372249 instance=ExtResource("1_014g0")]
+position = Vector2(323, 100.5)
+scale = Vector2(1, 1)
+caminho_da_imagem = "uid://bqcbjrtjcw15s"
+
+[node name="Card2" parent="CardManager" unique_id=461901354 instance=ExtResource("1_014g0")]
+position = Vector2(410, 198)
+scale = Vector2(1, 1)
+caminho_da_imagem = "uid://b3s8jyeqifurj"
+
+[node name="Card3" parent="CardManager" unique_id=1960622146 instance=ExtResource("1_014g0")]
+position = Vector2(232, 70)
+scale = Vector2(1, 1)
+caminho_da_imagem = "uid://c5vi5mlgrhx7c"
+
+[node name="Card4" parent="CardManager" unique_id=145777084 instance=ExtResource("1_014g0")]
+position = Vector2(183.5, 177.5)
+scale = Vector2(1, 1)
+caminho_da_imagem = "uid://c1e5vfmyoxjrh"
+
+[node name="Card5" parent="CardManager" unique_id=812990374 instance=ExtResource("1_014g0")]
+position = Vector2(61, 52.5)
+scale = Vector2(1, 1)
+caminho_da_imagem = "uid://t4voq3tir78k"
