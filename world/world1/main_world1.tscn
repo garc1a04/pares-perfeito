@@ -2,13 +2,52 @@
 
 [ext_resource type="PackedScene" uid="uid://2drq7cgyua6g" path="res://share/Component/card/card.tscn" id="1_014g0"]
 [ext_resource type="Script" uid="uid://dc2ngwv31pid" path="res://world/world1/card.gd" id="1_f17rd"]
+[ext_resource type="Script" uid="uid://dlv41n36spdcs" path="res://world/world1/main_world_1.gd" id="1_waiwb"]
+[ext_resource type="PackedScene" uid="uid://b0vsmg78pexc7" path="res://share/Component/placeholder_card/placeholder.tscn" id="3_jo1vk"]
 
 [node name="Index" type="Node2D" unique_id=1595145837]
+script = ExtResource("1_waiwb")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=235291910]
 offset_right = 1280.0
 offset_bottom = 715.0
 color = Color(0, 0.4, 0.2, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CardOrder" type="Node2D" parent="." unique_id=728004402]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardOrder" unique_id=1815899812]
+offset_top = 602.0
+offset_right = 712.77783
+offset_bottom = 725.0
+scale = Vector2(1.8, 1.8)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_constants/separation = 150
+accessibility_region = true
+alignment = 1
+
+[node name="Placeholder" parent="CardOrder/HBoxContainer" unique_id=843928286 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+order = 1
+
+[node name="Placeholder2" parent="CardOrder/HBoxContainer" unique_id=1397057898 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+order = 2
+
+[node name="Placeholder3" parent="CardOrder/HBoxContainer" unique_id=522031595 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+order = 3
+
+[node name="Placeholder4" parent="CardOrder/HBoxContainer" unique_id=1705551625 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+order = 4
+
+[node name="Placeholder5" parent="CardOrder/HBoxContainer" unique_id=1420437738 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+order = 5
 
 [node name="CardManager" type="Node2D" parent="." unique_id=996822690]
 position = Vector2(-1, -1)
@@ -16,26 +55,38 @@ scale = Vector2(2, 2)
 script = ExtResource("1_f17rd")
 
 [node name="Card" parent="CardManager" unique_id=390372249 instance=ExtResource("1_014g0")]
-position = Vector2(323, 100.5)
+position = Vector2(53.5, 203)
 scale = Vector2(1, 1)
 caminho_da_imagem = "uid://bqcbjrtjcw15s"
+order = 1
 
 [node name="Card2" parent="CardManager" unique_id=461901354 instance=ExtResource("1_014g0")]
-position = Vector2(410, 198)
+position = Vector2(181, 208.5)
 scale = Vector2(1, 1)
 caminho_da_imagem = "uid://b3s8jyeqifurj"
+order = 2
 
 [node name="Card3" parent="CardManager" unique_id=1960622146 instance=ExtResource("1_014g0")]
-position = Vector2(232, 70)
+position = Vector2(317.5, 186.5)
 scale = Vector2(1, 1)
 caminho_da_imagem = "uid://c5vi5mlgrhx7c"
+order = 3
 
 [node name="Card4" parent="CardManager" unique_id=145777084 instance=ExtResource("1_014g0")]
-position = Vector2(183.5, 177.5)
+position = Vector2(448, 190)
 scale = Vector2(1, 1)
 caminho_da_imagem = "uid://c1e5vfmyoxjrh"
+order = 4
 
 [node name="Card5" parent="CardManager" unique_id=812990374 instance=ExtResource("1_014g0")]
-position = Vector2(61, 52.5)
+position = Vector2(599, 192)
 scale = Vector2(1, 1)
 caminho_da_imagem = "uid://t4voq3tir78k"
+order = 5
+
+[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder2" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder3" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder4" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="win" from="CardManager" to="." method="_on_card_manager_win"]
