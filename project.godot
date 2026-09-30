@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="ParesPerfeitos"
-run/main_scene="uid://bpa7n72ji3t6a"
+run/main_scene="uid://0qepb4dj6nan"
 config/features=PackedStringArray("4.7", "Forward Plus")
+
+[autoload]
+
+Transition="*uid://dxpox5kbt7k71"
 
 [display]
 
