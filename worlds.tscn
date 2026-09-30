@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ck4lefe022fnd"]
+
+[ext_resource type="Script" uid="uid://c038iu651h41p" path="res://worlds.gd" id="1_pnk4r"]
+
+[node name="Levels" type="Node2D" unique_id=689762569]
+script = ExtResource("1_pnk4r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1531077330]
+offset_right = 1277.0
+offset_bottom = 721.0
+color = Color(0.4313404, 0.43134022, 0.43134007, 1)
+
+[node name="Label" type="Label" parent="." unique_id=861367798]
+offset_left = -2.0
+offset_right = 1285.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 42
+text = "Escolha o mundo abaixo: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=122134591]
+propagate_maximum_size = false
+offset_top = 307.5
+offset_right = 853.3334
+offset_bottom = 377.5
+scale = Vector2(1.5, 1.5)
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1169700504]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Mundo 1"
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=448999225]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Mundo 2"
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=94161136]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Mundo 3"
+
+[node name="Button4" type="Button" parent="HBoxContainer" unique_id=1987527518]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Mundo 5"
+
+[node name="Button5" type="Button" parent="HBoxContainer" unique_id=610110321]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Mundo 6"
+
+[connection signal="button_down" from="HBoxContainer/Button" to="." method="_on_button_button_down"]
