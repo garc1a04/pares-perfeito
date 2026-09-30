@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dqeyjvsernu5f"]
+
+[node name="Transition" type="CanvasLayer" unique_id=616580514]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=722976393]
+offset_right = 1280.0
+offset_bottom = 721.0
