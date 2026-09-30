@@ -18,10 +18,10 @@ func _input(event: InputEvent) -> void:
 			var card = raycast_check_for_card()
 			if card:
 				card_being_dragged = card
+				card_being_dragged.z_index = 100
 		else: 
 			if card_being_dragged != null:
-				if not card_being_dragged.active:
-					devolver_carta_para_o_topo(card_being_dragged)
+				card_being_dragged.z_index = 0
 				win.emit()
 			card_being_dragged = null
 
@@ -38,8 +38,3 @@ func raycast_check_for_card():
 		if potential_card in get_children():
 			return potential_card
 	return null
-
-func devolver_carta_para_o_topo(carta: Node2D):
-	var tween = get_tree().create_tween()
-	tween.tween_property(carta, "position:y", 125, 0.5).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(func(): carta.active = true)
