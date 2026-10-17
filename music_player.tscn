@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca6fdwfabv7v5"]
+
+[ext_resource type="AudioStream" uid="uid://bf5e46ufk1vmc" path="res://assets/Playing Cards Pixelart Asset Pack/SFX/musica/musica parabens.mp3" id="1_fvyft"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_fvyft")
+volume_db = -13.126
+autoplay = true

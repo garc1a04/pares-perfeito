@@ -139,17 +139,17 @@ O projeto foi desenvolvido utilizando **Godot**, com as cenas dos diferentes mun
 │   └── ex.gd.uid
 │
 └── world
-    ├── world1
-    │   └── main_world1.tscn
-    │
-    ├── world2
-    │   └── main_world2.tscn
-    │
-    ├── world3
-    │   └── main_world3.tscn
-    │
-    └── world4
-        └── main_world4.tscn
+	├── world1
+	│   └── main_world1.tscn
+	│
+	├── world2
+	│   └── main_world2.tscn
+	│
+	├── world3
+	│   └── main_world3.tscn
+	│
+	└── world4
+		└── main_world4.tscn
 ```
 
 ### 📌 Diretórios
@@ -177,7 +177,7 @@ world/
 ├── world3/
 │   └── main_world3.tscn
 └── world4/
-    └── main_world4.tscn
+	└── main_world4.tscn
 ```
 
 #### `index.tscn`
@@ -195,22 +195,22 @@ Arquivo de configuração principal do projeto Godot.
 A organização do jogo segue uma divisão baseada nos mundos:
 
 ```text
-                    ┌─────────────────┐
-                    │   index.tscn    │
-                    │  Tela inicial   │
-                    └────────┬────────┘
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-              ▼              ▼              ▼
-          🌱 Mundo 1      🍎 Mundo 2      💬 Mundo 3
-          Vida diária    Alimentação     Social
-              │              │              │
-              └──────────────┼──────────────┘
-                             │
-                             ▼
-                       🛡️ Mundo 4
-                         Segurança
+					┌─────────────────┐
+					│   index.tscn    │
+					│  Tela inicial   │
+					└────────┬────────┘
+							 │
+			  ┌──────────────┼──────────────┐
+			  │              │              │
+			  ▼              ▼              ▼
+		  🌱 Mundo 1      🍎 Mundo 2      💬 Mundo 3
+		  Vida diária    Alimentação     Social
+			  │              │              │
+			  └──────────────┼──────────────┘
+							 │
+							 ▼
+					   🛡️ Mundo 4
+						 Segurança
 ```
 
 Cada mundo pode conter diferentes atividades, mantendo a mesma mecânica central de **organização de sequências visuais**.

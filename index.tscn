@@ -1,27 +1,29 @@
-[gd_scene format=3 uid="uid://bpa7n72ji3t6a"]
+[gd_scene load_steps=3 format=3 uid="uid://bpa7n72ji3t6a"]
 
 [ext_resource type="Script" uid="uid://bfa7rljgke44k" path="res://index.gd" id="1_356j3"]
+[ext_resource type="Texture2D" uid="uid://dysth6iny55fh" path="res://assets/images/parabens logo cortada.png" id="2_2gn6w"]
 
-[node name="Index" type="Node2D" unique_id=1160205190]
+[node name="Index" type="Node2D"]
 script = ExtResource("1_356j3")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=434821661]
+[node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1277.0
 offset_bottom = 721.0
 color = Color(0.4313404, 0.43134022, 0.43134007, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1153908566]
+[node name="Label" type="Label" parent="."]
 offset_left = -2.0
 offset_right = 1285.0
 offset_bottom = 310.0
 theme_override_font_sizes/font_size = 42
-text = "Pares Perfeitos"
+text = "
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="." unique_id=2090841595]
+[node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(70, 70)
 offset_left = 567.0
 offset_top = 494.0
@@ -29,5 +31,10 @@ offset_right = 674.0
 offset_bottom = 532.0
 text = "PLAY"
 metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(660.5, 232.5)
+scale = Vector2(1.1101854, 0.95733327)
+texture = ExtResource("2_2gn6w")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

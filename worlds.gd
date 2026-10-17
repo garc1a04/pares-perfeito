@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 func _on_button_button_down() -> void:
 	var path = "res://levels.tscn"
-	Transition.scene_change(path)
+	Transition.scene_change(path, false)

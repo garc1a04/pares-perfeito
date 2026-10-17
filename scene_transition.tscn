@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0j4c2i3loiqo"]
+
+[ext_resource type="Script" uid="uid://clas82ql8b0jr" path="res://scene_transition.gd" id="1_64r8d"]
+[ext_resource type="Shader" uid="uid://ca726jy1j6c54" path="res://assets/Playing Cards Pixelart Asset Pack/Shaders/iris.gdshader" id="2_o2ocf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x52mg"]
+shader = ExtResource("2_o2ocf")
+shader_parameter/radius = 2.5
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/softness = 0.02
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="SceneTransition" type="CanvasLayer"]
+layer = 90
+script = ExtResource("1_64r8d")
+
+[node name="Iris" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_x52mg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

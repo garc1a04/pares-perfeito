@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfrwxlwgpvner"]
+
+[ext_resource type="Shader" uid="uid://cnbkc6mm1ynv2" path="res://assets/Playing Cards Pixelart Asset Pack/Shaders/crt.gdshader" id="1_cs4pe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5kql"]
+shader = ExtResource("1_cs4pe")
+shader_parameter/scanline_count = 240.0
+shader_parameter/scanline_intensity = 0.12
+shader_parameter/vignette_intensity = 0.25
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_intensity = 0.05
+
+[node name="CrtOverlay" type="CanvasLayer"]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_m5kql")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
