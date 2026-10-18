@@ -10,7 +10,6 @@ var carta_no_slot: Node2D = null
 func _ready() -> void:
 	if caminho_da_imagem != "":
 		sprite.texture = load(caminho_da_imagem)
-
 var has_card: bool: 
 	get: 
 		return carta_no_slot != null

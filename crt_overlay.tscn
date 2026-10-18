@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfrwxlwgpvner"]
+[gd_scene format=3 uid="uid://cfrwxlwgpvner"]
 
 [ext_resource type="Shader" uid="uid://cnbkc6mm1ynv2" path="res://assets/Playing Cards Pixelart Asset Pack/Shaders/crt.gdshader" id="1_cs4pe"]
 

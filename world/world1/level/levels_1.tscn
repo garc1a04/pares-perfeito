@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dtqmsteefpmec"]
+
+[ext_resource type="Script" uid="uid://dn8fveto44i4d" path="res://levels.gd" id="1_te33j"]
+[ext_resource type="Texture2D" uid="uid://domgligur35vr" path="res://assets/itens/Vector 3.png" id="2_aacsk"]
+[ext_resource type="Texture2D" uid="uid://cjb57jvjav4n5" path="res://assets/button/voltar.png" id="3_hlgkc"]
+[ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="4_kgnb4"]
+[ext_resource type="PackedScene" uid="uid://cioqw2bei4gdc" path="res://share/Component/level_component/level_component.tscn" id="5_cfbao"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0kqec"]
+texture = ExtResource("3_hlgkc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bolsw"]
+texture = ExtResource("3_hlgkc")
+modulate_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6n05j"]
+texture = ExtResource("3_hlgkc")
+modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+
+[node name="Levels" type="Node2D" unique_id=689762569]
+script = ExtResource("1_te33j")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1817409354]
+offset_right = 1277.0
+offset_bottom = 721.0
+
+[node name="voltar" type="Button" parent="." unique_id=10811478]
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 82.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_0kqec")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bolsw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6n05j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2057406828]
+position = Vector2(639.5, 380)
+scale = Vector2(0.92474043, 0.9881422)
+texture = ExtResource("2_aacsk")
+
+[node name="CheckButton" parent="." unique_id=222838759 instance=ExtResource("4_kgnb4")]
+offset_left = 1178.0
+offset_top = 22.0
+offset_right = 1260.0
+offset_bottom = 87.0
+
+[node name="LevelComponent" parent="." unique_id=206952409 instance=ExtResource("5_cfbao")]
+position = Vector2(305, 140)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Nivel 1"
+imagem_path = "uid://dd64fb2t3lpor"
+botao_sobre_imagem = false
+mundo_aberto = true
+transition_Path = "uid://bfqy67eo7k51d"
+
+[node name="LevelComponent2" parent="." unique_id=154001582 instance=ExtResource("5_cfbao")]
+position = Vector2(614, 604)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Nivel 2"
+imagem_path = "uid://dgagg04ntaddq"
+
+[node name="LevelComponent3" parent="." unique_id=793565065 instance=ExtResource("5_cfbao")]
+position = Vector2(940, 131)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Nivel 3"
+imagem_path = "uid://ddpni007xsg37"
+botao_sobre_imagem = false

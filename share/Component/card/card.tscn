@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://2drq7cgyua6g"]
 
 [ext_resource type="Script" uid="uid://mn8jlmsbf37r" path="res://share/Component/card/card_custom.gd" id="1_rl2xu"]
-[ext_resource type="Texture2D" uid="uid://djxk50qd0ilq5" path="res://assets/Playing Cards Pixelart Asset Pack/Sprites/Clubs 1.png" id="2_x44vm"]
+[ext_resource type="Texture2D" uid="uid://cdl6kpj26iaqi" path="res://assets/itens/Group 15.png" id="2_rl2xu"]
+[ext_resource type="FontFile" uid="uid://dkc64t6gkpb6u" path="res://assets/fonts/IrishGrover-Regular.ttf" id="3_x44vm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsr7l"]
-size = Vector2(40, 66)
+size = Vector2(56.5, 87)
 
 [node name="Card" type="Node2D" unique_id=390372249]
 position = Vector2(632, 342)
@@ -12,9 +13,26 @@ scale = Vector2(2, 2)
 script = ExtResource("1_rl2xu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=103677691]
-texture = ExtResource("2_x44vm")
+position = Vector2(2.0000105, -1.9999962)
+scale = Vector2(0.13075066, 0.12017167)
+texture = ExtResource("2_rl2xu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1024338194]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=420995083]
+position = Vector2(1.75, -2)
 shape = SubResource("RectangleShape2D_gsr7l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1806434625]
+offset_left = -50.0
+offset_top = -3.5
+offset_right = 58.5
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_x44vm")
+theme_override_font_sizes/normal_font_size = 12
+text = "TEXTO ALEATORIO"
+horizontal_alignment = 1
+vertical_alignment = 1

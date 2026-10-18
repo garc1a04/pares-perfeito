@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bfqy67eo7k51d"]
+
+[ext_resource type="Script" uid="uid://ss6a6evb703v" path="res://world/world1/nivel/nivel.gd" id="1_mcgx4"]
+[ext_resource type="Texture2D" uid="uid://cjb57jvjav4n5" path="res://assets/button/voltar.png" id="1_xrvsm"]
+[ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="2_14cpb"]
+[ext_resource type="Texture2D" uid="uid://cdl6kpj26iaqi" path="res://assets/itens/Group 15.png" id="3_14cpb"]
+[ext_resource type="Script" uid="uid://cyjjq8703pc8b" path="res://world/world1/nivel/carrosel.gd" id="3_i2xnm"]
+[ext_resource type="FontFile" uid="uid://dkc64t6gkpb6u" path="res://assets/fonts/IrishGrover-Regular.ttf" id="4_2fhgr"]
+[ext_resource type="Texture2D" uid="uid://6tdn36yu4u2g" path="res://assets/itens/Polygon 1.png" id="4_5sh40"]
+[ext_resource type="PackedScene" uid="uid://dsyxmnjpdndmy" path="res://share/Component/button/button.tscn" id="6_5twmi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mcgx4"]
+texture = ExtResource("1_xrvsm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2f11"]
+texture = ExtResource("1_xrvsm")
+modulate_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j2u4p"]
+texture = ExtResource("1_xrvsm")
+modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ci01"]
+texture = ExtResource("4_5sh40")
+modulate_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qprfq"]
+texture = ExtResource("4_5sh40")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sr04q"]
+texture = ExtResource("4_5sh40")
+modulate_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsr7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_14cpb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fhgr"]
+font = ExtResource("4_2fhgr")
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+stacked_outline_count = 1
+
+[node name="Nivel" type="Node2D" unique_id=1702952023]
+script = ExtResource("1_mcgx4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=479582919]
+offset_right = 1277.0
+offset_bottom = 721.0
+
+[node name="voltar" type="Button" parent="." unique_id=776183931]
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 82.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mcgx4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i2f11")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j2u4p")
+
+[node name="CheckButton" parent="." unique_id=222838759 instance=ExtResource("2_14cpb")]
+offset_left = 1178.0
+offset_top = 22.0
+offset_right = 1260.0
+offset_bottom = 87.0
+
+[node name="carrosel" type="Node2D" parent="." unique_id=873594173]
+position = Vector2(54, -13)
+script = ExtResource("3_i2xnm")
+
+[node name="esquerda" type="Button" parent="carrosel" unique_id=356101582]
+offset_left = 372.0
+offset_top = 350.0
+offset_right = 431.0
+offset_bottom = 404.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ci01")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qprfq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sr04q")
+
+[node name="direita" type="Button" parent="carrosel" unique_id=1281265650]
+offset_left = 825.0
+offset_top = 403.0
+offset_right = 884.0
+offset_bottom = 457.0
+scale = Vector2(-1, -1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ci01")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qprfq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sr04q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="carrosel" unique_id=1342698487]
+position = Vector2(600, 362.00003)
+scale = Vector2(0.75, 0.759)
+sprite_frames = SubResource("SpriteFrames_gsr7l")
+
+[node name="Label" type="Label" parent="carrosel" unique_id=1858932353]
+offset_left = 471.0
+offset_top = 562.0
+offset_right = 738.0
+offset_bottom = 601.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2fhgr")
+theme_override_font_sizes/font_size = 24
+text = "memorização"
+label_settings = SubResource("LabelSettings_2fhgr")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" parent="." unique_id=1566413963 instance=ExtResource("6_5twmi")]
+offset_left = 549.0
+offset_top = 627.0
+offset_right = 949.0
+offset_bottom = 773.0
+scale = Vector2(0.5, 0.5)
+text = "Iniciar"
+texto_personalizado = "Iniciar"

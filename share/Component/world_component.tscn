@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dnwpsxeayfe7i"]
+
+[ext_resource type="Script" uid="uid://dlgcewilov5kw" path="res://share/Component/world_component.gd" id="1_dviri"]
+[ext_resource type="PackedScene" uid="uid://dsyxmnjpdndmy" path="res://share/Component/button/button.tscn" id="1_gsmqy"]
+[ext_resource type="Texture2D" uid="uid://dgd1x4c356dxi" path="res://assets/worlds/world1.png" id="3_tcspq"]
+
+[sub_resource type="Animation" id="Animation_tcspq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 9)]
+}
+
+[sub_resource type="Animation" id="Animation_872cb"]
+resource_name = "new_animation"
+length = 2.5000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2666667, 2.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, 9), Vector2(-2, 25), Vector2(-2, 9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4y7ku"]
+_data = {
+&"RESET": SubResource("Animation_tcspq"),
+&"new_animation": SubResource("Animation_872cb")
+}
+
+[node name="WorldComponent" type="Node2D" unique_id=206952409]
+position = Vector2(572, 342)
+script = ExtResource("1_dviri")
+texto_personalizado = "WORLD 1"
+imagem_path = "uid://dgd1x4c356dxi"
+botao_sobre_imagem = true
+
+[node name="Button" parent="." unique_id=1566413963 instance=ExtResource("1_gsmqy")]
+offset_left = -102.0
+offset_top = 202.0
+offset_right = 298.0
+offset_bottom = 348.0
+scale = Vector2(0.5, 0.5)
+text = "Mundo X"
+
+[node name="imagem" type="Sprite2D" parent="." unique_id=1083630514]
+position = Vector2(-2, 9)
+texture = ExtResource("3_tcspq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2130039601]
+root_node = NodePath("../imagem")
+libraries/ = SubResource("AnimationLibrary_4y7ku")
+autoplay = &"new_animation"

@@ -3,24 +3,56 @@
 [ext_resource type="PackedScene" uid="uid://2drq7cgyua6g" path="res://share/Component/card/card.tscn" id="1_014g0"]
 [ext_resource type="Script" uid="uid://dc2ngwv31pid" path="res://world/world1/card.gd" id="1_f17rd"]
 [ext_resource type="Script" uid="uid://dlv41n36spdcs" path="res://world/world1/main_world_1.gd" id="1_waiwb"]
+[ext_resource type="Texture2D" uid="uid://cjb57jvjav4n5" path="res://assets/button/voltar.png" id="2_26df1"]
+[ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="3_76gkf"]
 [ext_resource type="PackedScene" uid="uid://b0vsmg78pexc7" path="res://share/Component/placeholder_card/placeholder.tscn" id="3_jo1vk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3d077"]
+texture = ExtResource("2_26df1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgx2h"]
+texture = ExtResource("2_26df1")
+modulate_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvpwc"]
+texture = ExtResource("2_26df1")
+modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 
 [node name="Index" type="Node2D" unique_id=1595145837]
 script = ExtResource("1_waiwb")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=235291910]
+[node name="Personagem" type="Node2D" parent="." unique_id=921120048]
+
+[node name="voltar" type="Button" parent="Personagem" unique_id=512641270]
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 82.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_3d077")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vgx2h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cvpwc")
+
+[node name="CheckButton" parent="Personagem" unique_id=222838759 instance=ExtResource("3_76gkf")]
+offset_left = 1178.0
+offset_top = 22.0
+offset_right = 1260.0
+offset_bottom = 87.0
+
+[node name="table" type="Node2D" parent="." unique_id=462427887]
+
+[node name="ColorRect" type="ColorRect" parent="table" unique_id=235291910]
+offset_top = 258.0
 offset_right = 1280.0
-offset_bottom = 715.0
-color = Color(0, 0.4, 0.2, 1)
-metadata/_edit_use_anchors_ = true
+offset_bottom = 716.0
 
-[node name="CardOrder" type="Node2D" parent="." unique_id=728004402]
+[node name="CardOrder" type="Node2D" parent="table" unique_id=728004402]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CardOrder" unique_id=1815899812]
+[node name="HBoxContainer" type="HBoxContainer" parent="table/CardOrder" unique_id=1815899812]
+offset_left = 1.0
 offset_top = 602.0
-offset_right = 712.77783
-offset_bottom = 725.0
-scale = Vector2(1.8, 1.8)
+offset_right = 855.66675
+offset_bottom = 653.0
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
@@ -29,76 +61,86 @@ theme_override_constants/separation = 150
 accessibility_region = true
 alignment = 1
 
-[node name="Placeholder" parent="CardOrder/HBoxContainer" unique_id=843928286 instance=ExtResource("3_jo1vk")]
+[node name="Placeholder" parent="table/CardOrder/HBoxContainer" unique_id=843928286 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
-caminho_da_imagem = "uid://bqcbjrtjcw15s"
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 1
 
-[node name="Placeholder2" parent="CardOrder/HBoxContainer" unique_id=1397057898 instance=ExtResource("3_jo1vk")]
+[node name="Placeholder2" parent="table/CardOrder/HBoxContainer" unique_id=1397057898 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
-caminho_da_imagem = "uid://b3s8jyeqifurj"
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 2
 
-[node name="Placeholder3" parent="CardOrder/HBoxContainer" unique_id=522031595 instance=ExtResource("3_jo1vk")]
+[node name="Placeholder3" parent="table/CardOrder/HBoxContainer" unique_id=522031595 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
-caminho_da_imagem = "uid://c5vi5mlgrhx7c"
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 3
 
-[node name="Placeholder4" parent="CardOrder/HBoxContainer" unique_id=1705551625 instance=ExtResource("3_jo1vk")]
+[node name="Placeholder4" parent="table/CardOrder/HBoxContainer" unique_id=1705551625 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
-caminho_da_imagem = "uid://c1e5vfmyoxjrh"
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 4
 
-[node name="Placeholder5" parent="CardOrder/HBoxContainer" unique_id=1420437738 instance=ExtResource("3_jo1vk")]
+[node name="Placeholder5" parent="table/CardOrder/HBoxContainer" unique_id=1420437738 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
-caminho_da_imagem = "uid://t4voq3tir78k"
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 5
 
-[node name="CardManager" type="Node2D" parent="." unique_id=996822690]
+[node name="CardManager" type="Node2D" parent="table" unique_id=996822690]
 position = Vector2(-1, -1)
 scale = Vector2(2, 2)
 script = ExtResource("1_f17rd")
 
-[node name="Card" parent="CardManager" unique_id=390372249 instance=ExtResource("1_014g0")]
+[node name="Card" parent="table/CardManager" unique_id=390372249 instance=ExtResource("1_014g0")]
 position = Vector2(55, 217.5)
-scale = Vector2(1, 1)
-caminho_da_imagem = "uid://bqcbjrtjcw15s"
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 1
+text = "Pego a escova"
 
-[node name="Card2" parent="CardManager" unique_id=461901354 instance=ExtResource("1_014g0")]
+[node name="Card2" parent="table/CardManager" unique_id=461901354 instance=ExtResource("1_014g0")]
 position = Vector2(189, 216.5)
-scale = Vector2(1, 1)
-caminho_da_imagem = "uid://b3s8jyeqifurj"
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 2
+text = "Pego a pasta"
 
-[node name="Card3" parent="CardManager" unique_id=1960622146 instance=ExtResource("1_014g0")]
+[node name="Card3" parent="table/CardManager" unique_id=1960622146 instance=ExtResource("1_014g0")]
 position = Vector2(323, 216.5)
-scale = Vector2(1, 1)
-caminho_da_imagem = "uid://c5vi5mlgrhx7c"
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 3
+text = "Coloco a pasta na escova"
 
-[node name="Card4" parent="CardManager" unique_id=145777084 instance=ExtResource("1_014g0")]
+[node name="Card4" parent="table/CardManager" unique_id=145777084 instance=ExtResource("1_014g0")]
 position = Vector2(458, 216)
-scale = Vector2(1, 1)
-caminho_da_imagem = "uid://c1e5vfmyoxjrh"
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 4
+text = "molho a escova"
 
-[node name="Card5" parent="CardManager" unique_id=812990374 instance=ExtResource("1_014g0")]
+[node name="Card5" parent="table/CardManager" unique_id=812990374 instance=ExtResource("1_014g0")]
 position = Vector2(594, 216)
-scale = Vector2(1, 1)
-caminho_da_imagem = "uid://t4voq3tir78k"
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 5
+text = "escovo os dentes"
 
-[node name="Card6" parent="CardManager" unique_id=1349786661 instance=ExtResource("1_014g0")]
+[node name="Card6" parent="table/CardManager" unique_id=1349786661 instance=ExtResource("1_014g0")]
 visible = false
 position = Vector2(575, 119)
-scale = Vector2(1, 1)
-caminho_da_imagem = "uid://b15wr8sfrquki"
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 6
 
-[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_wrong"]
-[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder2" to="." method="_on_qualquer_placeholder_card_wrong"]
-[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder3" to="." method="_on_qualquer_placeholder_card_wrong"]
-[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder4" to="." method="_on_qualquer_placeholder_card_wrong"]
-[connection signal="card_wrong" from="CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_wrong"]
-[connection signal="win" from="CardManager" to="." method="_on_card_manager_win"]
+[connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder2" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder3" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder4" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="win" from="table/CardManager" to="." method="_on_card_manager_win"]

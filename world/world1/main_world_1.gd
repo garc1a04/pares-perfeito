@@ -1,12 +1,16 @@
 extends Node2D
 
-@onready var placeholders = $CardOrder/HBoxContainer
-@onready var cards = $CardManager
-@onready var card_intrusa = $CardManager/Card6
+@onready var placeholders = $table/CardOrder/HBoxContainer
+@onready var cards = $table/CardManager
+@onready var card_intrusa = $table/CardManager/Card6
+@onready var mesa_fundo: ColorRect = $table/ColorRect
+var scene_world = preload("res://world/world1/main_world1.tscn")
+var path = "res://world/world1/level/levels_1.tscn"
+
 @export var min_x: float = 50.0
 @export var max_x: float = 1100.0
-@export var min_y: float = 50.0
-@export var max_y: float = 400.0
+@export var altura_y_fixa: float = 400.0
+@export var margem_seguranca: float = 100
 
 enum Level {
 	MEMORIZACAO = 1,
@@ -16,10 +20,15 @@ enum Level {
 	INTRUSA = 5
 }
 
-@export var nivel_atual: Level = Level.SILHUETA
-
+@export var nivel_atual: Level = Level.DO_ZERO
+@onready var voltar: Button = $Personagem/voltar
 func _ready() -> void:
+	voltar.pressed.connect(_on_voltar)
 	_config()
+
+func _on_voltar() -> void:
+	var path = "res://world/world1/level/levels_1.tscn"
+	Transition.scene_change(path, true)
 
 func _config():
 	iniciar_nivel(nivel_atual)
@@ -40,13 +49,13 @@ func iniciar_nivel(nivel: Level):
 		Level.INTRUSA:
 			configurar_nivel_5()
 
-
 # TALVEZ AQUI SEJA ALGUMA ANIMACÃO MOSTRANDO ALGO OU SEI LÁ, PQ FICOU ESTRANHO
 # SER APENAS MOVER PARA BAIXO
-
-
 func configurar_nivel_1():
-	pass
+	for c in placeholders.get_children():
+		c.visible = true 
+		c.sprite.visible = true
+		c.sprite.modulate.a = 0.3
 
 func configurar_nivel_2():
 	for c in placeholders.get_children():
@@ -76,11 +85,45 @@ func configurar_nivel_5():
 
 func embaralhar_cartas(inicio_indice: int) -> void:
 	var lista_de_cartas = cards.get_children()
+	var total_cartas = lista_de_cartas.size() - inicio_indice
+	
+	# Previne erros caso não haja cartas para embaralhar
+	if total_cartas <= 0:
+		return
+		
+	var min_x = mesa_fundo.global_position.x + margem_seguranca
+	var max_x = mesa_fundo.global_position.x + mesa_fundo.size.x - margem_seguranca
+	
+	# Calcula a largura total disponível e o tamanho de cada "fatia" (slot) para as cartas
+	var largura_disponivel = max_x - min_x
+	var tamanho_do_slot = largura_disponivel / total_cartas
+	
+	var posicoes_x = []
+	
+	# 1. Gera as posições X uniformemente distribuídas
+	for i in range(total_cartas):
+		# Acha o meio exato do slot atual
+		var posicao_base = min_x + (i * tamanho_do_slot) + (tamanho_do_slot / 2.0)
+		
+		# (Opcional) Adiciona uma variação minúscula dentro do próprio slot 
+		# para a carta não parecer "colada com régua", mantendo um visual orgânico
+		var variacao_organica = randf_range(-tamanho_do_slot * 0.15, tamanho_do_slot * 0.15)
+		
+		posicoes_x.append(posicao_base + variacao_organica)
+		
+	# 2. Embaralha a ordem das posições geradas
+	posicoes_x.shuffle()
+	
+	# 3. Distribui as posições embaralhadas para as cartas
+	var index_da_posicao = 0
 	for i in range(inicio_indice, lista_de_cartas.size()):
 		var card = lista_de_cartas[i]
-		var random_x = randf_range(min_x, max_x)
-		var random_y = randf_range(min_y, max_y)
-		card.global_position = Vector2(random_x, random_y)
+		
+		# Aplica a posição X única e a altura Y fixa
+		card.global_position = Vector2(posicoes_x[index_da_posicao], altura_y_fixa)
+		
+		index_da_posicao += 1
+
 
 func _on_qualquer_placeholder_card_wrong(card: Node2D) -> void:
 	card.active = false
@@ -107,10 +150,21 @@ func check_win() -> void:
 				slot.carta_no_slot = null 
 
 		if todas_corretas:
-			var path = "res://levels.tscn"
-			Transition.scene_change(path)
+			if nivel_atual >= Level.INTRUSA:
+				Transition.scene_change(path, true)
+				return # Encerra aqui e volta para o menu de níveis
+				
+			# 2. Se não for o último, instanciamos a próxima fase
+			var scene: Node = scene_world.instantiate()
+			
+			# 3. Faz o cast do número (+1) para o Enum (Level) para evitar erros de tipagem do Godot
+			scene.nivel_atual = (nivel_atual + 1) as Level
+			
+			# 4. Transita para a nova cena
+			Transition.scene_change_object(scene)
 
 func devolver_carta_para_o_topo(carta: Node2D):
+	var topo_y = mesa_fundo.global_position.y + margem_seguranca
 	var tween = get_tree().create_tween()
-	tween.tween_property(carta, "position:y", 125, 0.5).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(carta, "global_position:y", topo_y, 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(func(): carta.active = true)

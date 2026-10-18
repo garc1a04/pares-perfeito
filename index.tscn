@@ -1,18 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpa7n72ji3t6a"]
+[gd_scene format=3 uid="uid://bpa7n72ji3t6a"]
 
 [ext_resource type="Script" uid="uid://bfa7rljgke44k" path="res://index.gd" id="1_356j3"]
-[ext_resource type="Texture2D" uid="uid://dysth6iny55fh" path="res://assets/images/parabens logo cortada.png" id="2_2gn6w"]
+[ext_resource type="PackedScene" uid="uid://dsyxmnjpdndmy" path="res://share/Component/button/button.tscn" id="2_3bfj3"]
+[ext_resource type="Texture2D" uid="uid://br54g0kvug4ru" path="res://assets/images/Gemini_Generated_Image_bi63xxbi63xxbi63.png" id="4_3bfj3"]
+[ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="5_ir7so"]
 
-[node name="Index" type="Node2D"]
+[sub_resource type="Animation" id="Animation_ir7so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(638.00006, 260)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d1yoc"]
+resource_name = "title_moving"
+length = 3.0000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(638.00006, 225.00635), Vector2(638, 255.006), Vector2(638.00006, 225.00635)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.02617993877991494, -0.01745329251994329, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fy20"]
+_data = {
+&"RESET": SubResource("Animation_ir7so"),
+&"title_moving": SubResource("Animation_d1yoc")
+}
+
+[node name="Index" type="Node2D" unique_id=1161326484]
 script = ExtResource("1_356j3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1710404235]
 offset_right = 1277.0
 offset_bottom = 721.0
-color = Color(0.4313404, 0.43134022, 0.43134007, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=850699985]
 offset_left = -2.0
 offset_right = 1285.0
 offset_bottom = 310.0
@@ -23,18 +86,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(70, 70)
-offset_left = 567.0
-offset_top = 494.0
-offset_right = 674.0
-offset_bottom = 532.0
-text = "PLAY"
-metadata/_edit_use_anchors_ = true
+[node name="button" parent="." unique_id=1566413963 instance=ExtResource("2_3bfj3")]
+texto_personalizado = "Iniciar"
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(660.5, 232.5)
-scale = Vector2(1.1101854, 0.95733327)
-texture = ExtResource("2_2gn6w")
+[node name="Logo" type="Sprite2D" parent="." unique_id=722981255]
+position = Vector2(638.00006, 260)
+scale = Vector2(0.3020635, 0.2808372)
+texture = ExtResource("4_3bfj3")
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1006837533]
+root_node = NodePath("../Logo")
+libraries/ = SubResource("AnimationLibrary_2fy20")
+autoplay = &"title_moving"
+
+[node name="CheckButton" parent="." unique_id=222838759 instance=ExtResource("5_ir7so")]
+offset_left = 1178.0
+offset_top = 22.0
+offset_right = 1260.0
+offset_bottom = 87.0

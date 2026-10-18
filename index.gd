@@ -1,11 +1,10 @@
 extends Node2D
 
+@onready var btn_iniciar: Button = $button
+
 func _ready() -> void:
-	pass 
+	btn_iniciar.pressed.connect(_on_button_pressed)
 
-func _process(delta: float) -> void:
-	pass
-
-func _on_button_button_down() -> void:
+func _on_button_pressed() -> void:
 	var path = "res://worlds.tscn"
-	Transition.scene_change(path, false)
+	Transition.scene_change(path, true)

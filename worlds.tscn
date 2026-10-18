@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://ck4lefe022fnd"]
 
 [ext_resource type="Script" uid="uid://c038iu651h41p" path="res://worlds.gd" id="1_pnk4r"]
+[ext_resource type="Texture2D" uid="uid://cjb57jvjav4n5" path="res://assets/button/voltar.png" id="2_5d0iq"]
+[ext_resource type="PackedScene" uid="uid://dnwpsxeayfe7i" path="res://share/Component/world_component.tscn" id="2_6tf8t"]
+[ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="2_cmhdq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gsr7l"]
+texture = ExtResource("2_5d0iq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d0iq"]
+texture = ExtResource("2_5d0iq")
+modulate_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acsqh"]
+texture = ExtResource("2_5d0iq")
+modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 
 [node name="Levels" type="Node2D" unique_id=689762569]
 script = ExtResource("1_pnk4r")
@@ -8,50 +22,51 @@ script = ExtResource("1_pnk4r")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1531077330]
 offset_right = 1277.0
 offset_bottom = 721.0
-color = Color(0.4313404, 0.43134022, 0.43134007, 1)
 
-[node name="Label" type="Label" parent="." unique_id=861367798]
-offset_left = -2.0
-offset_right = 1285.0
-offset_bottom = 310.0
-theme_override_font_sizes/font_size = 42
-text = "Escolha o mundo abaixo: "
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="voltar" type="Button" parent="." unique_id=157191180]
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 82.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_gsr7l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5d0iq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_acsqh")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=122134591]
-propagate_maximum_size = false
-offset_top = 307.5
-offset_right = 853.3334
-offset_bottom = 377.5
-scale = Vector2(1.5, 1.5)
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 30
-alignment = 1
+[node name="CheckButton" parent="." unique_id=222838759 instance=ExtResource("2_cmhdq")]
+offset_left = 1178.0
+offset_top = 22.0
+offset_right = 1260.0
+offset_bottom = 87.0
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=1169700504]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-text = "Mundo 1"
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1472400069]
+offset_left = 288.0
+offset_top = 74.0
+offset_right = 328.0
+offset_bottom = 114.0
 
-[node name="Button2" type="Button" parent="HBoxContainer" unique_id=448999225]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-text = "Mundo 2"
+[node name="world1" parent="." unique_id=206952409 instance=ExtResource("2_6tf8t")]
+position = Vector2(441, 245)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Mundo 1"
+mundo_aberto = true
+transition_Path = "uid://dtqmsteefpmec"
 
-[node name="Button3" type="Button" parent="HBoxContainer" unique_id=94161136]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-text = "Mundo 3"
+[node name="world2" parent="." unique_id=1862201252 instance=ExtResource("2_6tf8t")]
+position = Vector2(723, 242)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Mundo 2"
+imagem_path = "uid://ce61bd1criefk"
 
-[node name="Button4" type="Button" parent="HBoxContainer" unique_id=1987527518]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-text = "Mundo 5"
+[node name="world3" parent="." unique_id=1157243997 instance=ExtResource("2_6tf8t")]
+position = Vector2(585, 467)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Mundo 3"
+imagem_path = "uid://dqnuukumdg5ng"
+botao_sobre_imagem = false
 
-[node name="Button5" type="Button" parent="HBoxContainer" unique_id=610110321]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-text = "Mundo 6"
-
-[connection signal="button_down" from="HBoxContainer/Button" to="." method="_on_button_button_down"]
+[node name="world4" parent="." unique_id=2132157318 instance=ExtResource("2_6tf8t")]
+position = Vector2(845, 477)
+scale = Vector2(0.8, 0.8)
+texto_personalizado = "Mundo 4"
+imagem_path = "uid://fmcfksla8w7d"
+botao_sobre_imagem = false

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cx83uy1a8fywg"]
+
+[ext_resource type="Texture2D" uid="uid://dyeslgptc7wnr" path="res://assets/button/sound/Group 16.png" id="1_2qhsk"]
+[ext_resource type="Texture2D" uid="uid://bn663glujqwyc" path="res://assets/button/sound/Component 1.png" id="2_l7q3b"]
+[ext_resource type="Script" uid="uid://cd1hjdritjji7" path="res://share/Component/sound/sound.gd" id="3_l7q3b"]
+
+[node name="CheckButton" type="CheckButton" unique_id=222838759]
+offset_left = 574.0
+offset_top = 318.0
+offset_right = 656.0
+offset_bottom = 383.0
+theme_override_icons/checked = ExtResource("1_2qhsk")
+theme_override_icons/unchecked = ExtResource("2_l7q3b")
+theme_override_icons/checked_disabled = ExtResource("2_l7q3b")
+button_pressed = true
+script = ExtResource("3_l7q3b")
