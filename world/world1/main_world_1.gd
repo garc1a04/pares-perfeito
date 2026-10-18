@@ -4,6 +4,7 @@ extends Node2D
 @onready var cards = $table/CardManager
 @onready var card_intrusa = $table/CardManager/Card6
 @onready var mesa_fundo: ColorRect = $table/ColorRect
+@onready var personagem: AnimatedSprite2D = $AnimatedSprite2D
 var scene_world = preload("res://world/world1/main_world1.tscn")
 var path = "res://world/world1/level/levels_1.tscn"
 
@@ -32,7 +33,10 @@ func _on_voltar() -> void:
 
 func _config():
 	iniciar_nivel(nivel_atual)
+	
 	for placeholder in placeholders.get_children():
+		if placeholder.has_signal("card_right"):
+			placeholder.card_right.connect(_on_qualquer_placeholder_card_right)
 		if placeholder.has_signal("card_wrong"):
 			placeholder.card_wrong.connect(_on_qualquer_placeholder_card_wrong)
 
@@ -49,8 +53,7 @@ func iniciar_nivel(nivel: Level):
 		Level.INTRUSA:
 			configurar_nivel_5()
 
-# TALVEZ AQUI SEJA ALGUMA ANIMACÃO MOSTRANDO ALGO OU SEI LÁ, PQ FICOU ESTRANHO
-# SER APENAS MOVER PARA BAIXO
+
 func configurar_nivel_1():
 	for c in placeholders.get_children():
 		c.visible = true 
@@ -127,6 +130,18 @@ func embaralhar_cartas(inicio_indice: int) -> void:
 
 func _on_qualquer_placeholder_card_wrong(card: Node2D) -> void:
 	card.active = false
+
+	for i in range(1):
+		personagem.play("Blinking_wrong")
+		await personagem.animation_finished
+		
+	personagem.play("Idle")
+
+func _on_qualquer_placeholder_card_right(card: Node2D) -> void:
+	for i in range(1):
+		personagem.play("Blinking_right")
+		await personagem.animation_finished
+	personagem.play("Idle")
 
 func _on_card_manager_win() -> void:
 	check_win()

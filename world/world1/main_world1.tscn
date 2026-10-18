@@ -4,8 +4,147 @@
 [ext_resource type="Script" uid="uid://dc2ngwv31pid" path="res://world/world1/card.gd" id="1_f17rd"]
 [ext_resource type="Script" uid="uid://dlv41n36spdcs" path="res://world/world1/main_world_1.gd" id="1_waiwb"]
 [ext_resource type="Texture2D" uid="uid://cjb57jvjav4n5" path="res://assets/button/voltar.png" id="2_26df1"]
+[ext_resource type="Texture2D" uid="uid://bi85lcmjcy83v" path="res://assets/personagem/Gemini_Generated_Image_csje0pcsje0pcsje(1).png" id="2_cvpwc"]
 [ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="3_76gkf"]
+[ext_resource type="Texture2D" uid="uid://dl4dbnt1o4elo" path="res://assets/personagem/Gemini_Generated_Image_apumrcapumrcapum(1).png" id="3_bwumu"]
 [ext_resource type="PackedScene" uid="uid://b0vsmg78pexc7" path="res://share/Component/placeholder_card/placeholder.tscn" id="3_jo1vk"]
+[ext_resource type="Texture2D" uid="uid://cv5tm24pyiw58" path="res://assets/personagem/Gemini_Generated_Image_hg0du1hg0du1hg0d(1).png" id="3_vgx2h"]
+[ext_resource type="Texture2D" uid="uid://bbnyu6ks7h5nf" path="res://assets/personagem/Gemini_Generated_Image_thj6ijthj6ijthj6.png" id="5_x0v1x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3llx"]
+atlas = ExtResource("2_cvpwc")
+region = Rect2(0, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpqwi"]
+atlas = ExtResource("2_cvpwc")
+region = Rect2(688, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adg46"]
+atlas = ExtResource("2_cvpwc")
+region = Rect2(1376, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32vpo"]
+atlas = ExtResource("2_cvpwc")
+region = Rect2(2064, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfwi2"]
+atlas = ExtResource("3_bwumu")
+region = Rect2(0, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owh8m"]
+atlas = ExtResource("3_bwumu")
+region = Rect2(688, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x57ts"]
+atlas = ExtResource("3_bwumu")
+region = Rect2(1376, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iiug"]
+atlas = ExtResource("3_bwumu")
+region = Rect2(2064, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0v1x"]
+atlas = ExtResource("3_vgx2h")
+region = Rect2(0, 0, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b560w"]
+atlas = ExtResource("3_vgx2h")
+region = Rect2(688, 0, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkuxp"]
+atlas = ExtResource("3_vgx2h")
+region = Rect2(1376, 0, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in3uc"]
+atlas = ExtResource("3_vgx2h")
+region = Rect2(2064, 0, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nocf"]
+atlas = ExtResource("5_x0v1x")
+region = Rect2(0, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5uxa"]
+atlas = ExtResource("5_x0v1x")
+region = Rect2(688, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2w03"]
+atlas = ExtResource("5_x0v1x")
+region = Rect2(1376, 768, 688, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm1il"]
+atlas = ExtResource("5_x0v1x")
+region = Rect2(2064, 768, 688, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76i0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3llx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpqwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adg46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32vpo")
+}],
+"loop": 0,
+"name": &"Blinking_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfwi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owh8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x57ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iiug")
+}],
+"loop": 0,
+"name": &"Blinking_wrong",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0v1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b560w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkuxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in3uc")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nocf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5uxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2w03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm1il")
+}],
+"loop": 1,
+"name": &"Thinking",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3d077"]
 texture = ExtResource("2_26df1")
@@ -20,6 +159,13 @@ modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 
 [node name="Index" type="Node2D" unique_id=1595145837]
 script = ExtResource("1_waiwb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=463020749]
+position = Vector2(646, 175)
+scale = Vector2(0.3865672, 0.37691328)
+sprite_frames = SubResource("SpriteFrames_76i0i")
+animation = &"Thinking"
+autoplay = "Idle"
 
 [node name="Personagem" type="Node2D" parent="." unique_id=921120048]
 
@@ -41,7 +187,7 @@ offset_bottom = 87.0
 [node name="table" type="Node2D" parent="." unique_id=462427887]
 
 [node name="ColorRect" type="ColorRect" parent="table" unique_id=235291910]
-offset_top = 258.0
+offset_top = 274.0
 offset_right = 1280.0
 offset_bottom = 716.0
 
@@ -138,9 +284,14 @@ scale = Vector2(0.6, 0.6)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 6
 
+[connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder2" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder2" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder3" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder3" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder4" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder4" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_wrong"]
 [connection signal="win" from="table/CardManager" to="." method="_on_card_manager_win"]

@@ -3,6 +3,7 @@ extends Node2D
 signal win
 var screen_size
 var card_being_dragged
+@onready var personagem: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -17,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			var card = raycast_check_for_card()
 			if card:
+				personagem.animation = "Thinking"
 				card_being_dragged = card
 				card_being_dragged.z_index = 100
 		else: 
@@ -24,6 +26,7 @@ func _input(event: InputEvent) -> void:
 				card_being_dragged.z_index = 0
 				win.emit()
 			card_being_dragged = null
+			personagem.animation = "Idle"
 
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
