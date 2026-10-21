@@ -9,9 +9,10 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 
 func _process(delta: float) -> void:
+	var table: ColorRect = $"../ColorRect"
 	if card_being_dragged:
 		var mouse_pos = get_global_mouse_position()
-		card_being_dragged.global_position = Vector2(clamp(mouse_pos.x, 0, screen_size.x), clamp(mouse_pos.y, 0, screen_size.y))
+		card_being_dragged.global_position = Vector2(clamp(mouse_pos.x, table.global_position.x + 80, screen_size.x), clamp(mouse_pos.y, table.global_position.y + 80, screen_size.y))
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

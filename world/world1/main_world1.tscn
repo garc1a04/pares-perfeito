@@ -4,12 +4,27 @@
 [ext_resource type="Script" uid="uid://dc2ngwv31pid" path="res://world/world1/card.gd" id="1_f17rd"]
 [ext_resource type="Script" uid="uid://dlv41n36spdcs" path="res://world/world1/main_world_1.gd" id="1_waiwb"]
 [ext_resource type="Texture2D" uid="uid://cjb57jvjav4n5" path="res://assets/button/voltar.png" id="2_26df1"]
+[ext_resource type="Shader" uid="uid://xafcqvgdla4h" path="res://world/world1/main_world1.gdshader" id="2_bwumu"]
 [ext_resource type="Texture2D" uid="uid://bi85lcmjcy83v" path="res://assets/personagem/Gemini_Generated_Image_csje0pcsje0pcsje(1).png" id="2_cvpwc"]
 [ext_resource type="PackedScene" uid="uid://cx83uy1a8fywg" path="res://share/Component/sound/sound.tscn" id="3_76gkf"]
 [ext_resource type="Texture2D" uid="uid://dl4dbnt1o4elo" path="res://assets/personagem/Gemini_Generated_Image_apumrcapumrcapum(1).png" id="3_bwumu"]
 [ext_resource type="PackedScene" uid="uid://b0vsmg78pexc7" path="res://share/Component/placeholder_card/placeholder.tscn" id="3_jo1vk"]
 [ext_resource type="Texture2D" uid="uid://cv5tm24pyiw58" path="res://assets/personagem/Gemini_Generated_Image_hg0du1hg0du1hg0d(1).png" id="3_vgx2h"]
 [ext_resource type="Texture2D" uid="uid://bbnyu6ks7h5nf" path="res://assets/personagem/Gemini_Generated_Image_thj6ijthj6ijthj6.png" id="5_x0v1x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76i0i"]
+shader = ExtResource("2_bwumu")
+shader_parameter/line_color = Color(0, 0, 0, 0.15)
+shader_parameter/line_spacing = 10.0
+
+[sub_resource type="Gradient" id="Gradient_mx1e6"]
+colors = PackedColorArray(1, 1, 1, 1, 0.15022737, 0.1467891, 0.1467892, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gsr7l"]
+gradient = SubResource("Gradient_mx1e6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3llx"]
 atlas = ExtResource("2_cvpwc")
@@ -160,8 +175,21 @@ modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 [node name="Index" type="Node2D" unique_id=1595145837]
 script = ExtResource("1_waiwb")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=699496523]
+material = SubResource("ShaderMaterial_76i0i")
+offset_top = 1.5258789e-05
+offset_right = 1278.0
+offset_bottom = 707.00006
+color = Color(0.18039216, 0.1764706, 0.1764706, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1622894222]
+layout_mode = 0
+offset_right = 1284.0
+offset_bottom = 717.00006
+texture = SubResource("GradientTexture2D_gsr7l")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=463020749]
-position = Vector2(646, 175)
+position = Vector2(646, 179)
 scale = Vector2(0.3865672, 0.37691328)
 sprite_frames = SubResource("SpriteFrames_76i0i")
 animation = &"Thinking"
@@ -243,36 +271,36 @@ scale = Vector2(2, 2)
 script = ExtResource("1_f17rd")
 
 [node name="Card" parent="table/CardManager" unique_id=390372249 instance=ExtResource("1_014g0")]
-position = Vector2(55, 217.5)
-scale = Vector2(0.6, 0.6)
+position = Vector2(97.5, 199.49998)
+scale = Vector2(0.75, 0.75)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 1
 text = "Pego a escova"
 
 [node name="Card2" parent="table/CardManager" unique_id=461901354 instance=ExtResource("1_014g0")]
-position = Vector2(189, 216.5)
-scale = Vector2(0.6, 0.6)
+position = Vector2(213, 198.00002)
+scale = Vector2(0.75, 0.75)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 2
 text = "Pego a pasta"
 
 [node name="Card3" parent="table/CardManager" unique_id=1960622146 instance=ExtResource("1_014g0")]
-position = Vector2(323, 216.5)
-scale = Vector2(0.6, 0.6)
+position = Vector2(327, 198.99998)
+scale = Vector2(0.75, 0.75)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 3
 text = "Coloco a pasta na escova"
 
 [node name="Card4" parent="table/CardManager" unique_id=145777084 instance=ExtResource("1_014g0")]
-position = Vector2(458, 216)
-scale = Vector2(0.6, 0.6)
+position = Vector2(435.50015, 198.49997)
+scale = Vector2(0.75, 0.75)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 4
 text = "molho a escova"
 
 [node name="Card5" parent="table/CardManager" unique_id=812990374 instance=ExtResource("1_014g0")]
-position = Vector2(594, 216)
-scale = Vector2(0.6, 0.6)
+position = Vector2(551, 199.5)
+scale = Vector2(0.75, 0.75)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 5
 text = "escovo os dentes"
@@ -280,7 +308,7 @@ text = "escovo os dentes"
 [node name="Card6" parent="table/CardManager" unique_id=1349786661 instance=ExtResource("1_014g0")]
 visible = false
 position = Vector2(575, 119)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.75, 0.75)
 caminho_da_imagem = "uid://cdl6kpj26iaqi"
 order = 6
 

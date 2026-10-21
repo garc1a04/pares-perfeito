@@ -5,6 +5,7 @@ extends Node2D
 @onready var card_intrusa = $table/CardManager/Card6
 @onready var mesa_fundo: ColorRect = $table/ColorRect
 @onready var personagem: AnimatedSprite2D = $AnimatedSprite2D
+
 var scene_world = preload("res://world/world1/main_world1.tscn")
 var path = "res://world/world1/level/levels_1.tscn"
 
@@ -23,13 +24,17 @@ enum Level {
 
 @export var nivel_atual: Level = Level.DO_ZERO
 @onready var voltar: Button = $Personagem/voltar
+
+# --- Variáveis de Controle de Fluidez e Animação ---
+var erros_consecutivos: int = 0
+
 func _ready() -> void:
 	voltar.pressed.connect(_on_voltar)
 	_config()
 
 func _on_voltar() -> void:
-	var path = "res://world/world1/level/levels_1.tscn"
-	Transition.scene_change(path, true)
+	var scene_path = "res://world/world1/level/levels_1.tscn"
+	Transition.scene_change(scene_path, true)
 
 func _config():
 	iniciar_nivel(nivel_atual)
@@ -90,58 +95,47 @@ func embaralhar_cartas(inicio_indice: int) -> void:
 	var lista_de_cartas = cards.get_children()
 	var total_cartas = lista_de_cartas.size() - inicio_indice
 	
-	# Previne erros caso não haja cartas para embaralhar
 	if total_cartas <= 0:
 		return
 		
-	var min_x = mesa_fundo.global_position.x + margem_seguranca
-	var max_x = mesa_fundo.global_position.x + mesa_fundo.size.x - margem_seguranca
+	var posicao_min_x = mesa_fundo.global_position.x + margem_seguranca
+	var posicao_max_x = mesa_fundo.global_position.x + mesa_fundo.size.x - margem_seguranca
 	
-	# Calcula a largura total disponível e o tamanho de cada "fatia" (slot) para as cartas
-	var largura_disponivel = max_x - min_x
+	var largura_disponivel = posicao_max_x - posicao_min_x
 	var tamanho_do_slot = largura_disponivel / total_cartas
 	
 	var posicoes_x = []
 	
-	# 1. Gera as posições X uniformemente distribuídas
 	for i in range(total_cartas):
-		# Acha o meio exato do slot atual
-		var posicao_base = min_x + (i * tamanho_do_slot) + (tamanho_do_slot / 2.0)
-		
-		# (Opcional) Adiciona uma variação minúscula dentro do próprio slot 
-		# para a carta não parecer "colada com régua", mantendo um visual orgânico
+		var posicao_base = posicao_min_x + (i * tamanho_do_slot) + (tamanho_do_slot / 2.0)
 		var variacao_organica = randf_range(-tamanho_do_slot * 0.15, tamanho_do_slot * 0.15)
-		
 		posicoes_x.append(posicao_base + variacao_organica)
 		
-	# 2. Embaralha a ordem das posições geradas
 	posicoes_x.shuffle()
 	
-	# 3. Distribui as posições embaralhadas para as cartas
 	var index_da_posicao = 0
 	for i in range(inicio_indice, lista_de_cartas.size()):
 		var card = lista_de_cartas[i]
-		
-		# Aplica a posição X única e a altura Y fixa
 		card.global_position = Vector2(posicoes_x[index_da_posicao], altura_y_fixa)
-		
 		index_da_posicao += 1
 
 
 func _on_qualquer_placeholder_card_wrong(card: Node2D) -> void:
 	card.active = false
-
-	for i in range(1):
+	
+	# Verifica se já acumulou erros suficientes na devolução das cartas
+	if erros_consecutivos >= 3:
+		personagem.stop()
 		personagem.play("Blinking_wrong")
 		await personagem.animation_finished
-		
-	personagem.play("Idle")
+		personagem.play("Idle")
 
 func _on_qualquer_placeholder_card_right(card: Node2D) -> void:
-	for i in range(1):
+	if erros_consecutivos >= 3:
+		personagem.stop()
 		personagem.play("Blinking_right")
 		await personagem.animation_finished
-	personagem.play("Idle")
+		personagem.play("Idle")
 
 func _on_card_manager_win() -> void:
 	check_win()
@@ -158,28 +152,32 @@ func check_win() -> void:
 
 	if todos_preenchidos:
 		var todas_corretas = true
+		
+		# Verifica todas as cartas e devolve as incorretas
 		for slot in placeholders_nodes:
 			if slot.carta_no_slot.order != slot.order:
 				todas_corretas = false
 				devolver_carta_para_o_topo(slot.carta_no_slot)
 				slot.carta_no_slot = null 
 
+		# Se ganhou a fase
 		if todas_corretas:
+			erros_consecutivos = 0
+			
+			
 			if nivel_atual >= Level.INTRUSA:
 				Transition.scene_change(path, true)
-				return # Encerra aqui e volta para o menu de níveis
+				return 
 				
-			# 2. Se não for o último, instanciamos a próxima fase
 			var scene: Node = scene_world.instantiate()
-			
-			# 3. Faz o cast do número (+1) para o Enum (Level) para evitar erros de tipagem do Godot
 			scene.nivel_atual = (nivel_atual + 1) as Level
-			
-			# 4. Transita para a nova cena
 			Transition.scene_change_object(scene)
 
 func devolver_carta_para_o_topo(carta: Node2D):
+	# Incremento numérico feito estritamente aqui
+	erros_consecutivos += 1 
+	
 	var topo_y = mesa_fundo.global_position.y + margem_seguranca
 	var tween = get_tree().create_tween()
-	tween.tween_property(carta, "global_position:y", topo_y, 0.5).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(carta, "global_position:y", topo_y, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(func(): carta.active = true)
