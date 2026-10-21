@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b2r28taxy18lr"]
+[gd_scene load_steps=7 format=3 uid="uid://b2r28taxy18lr"]
 
 [ext_resource type="Script" uid="uid://dn8fveto44i4d" path="res://levels.gd" id="1_48rmr"]
 [ext_resource type="Texture2D" uid="uid://domgligur35vr" path="res://assets/itens/Vector 3.png" id="2_02xe8"]
@@ -9,32 +9,32 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8mww"]
 texture = ExtResource("3_xv4fl")
 
-[node name="Levels" type="Node2D" unique_id=689762569]
+[node name="Levels" type="Node2D"]
 script = ExtResource("1_48rmr")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1817409354]
+[node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1277.0
 offset_bottom = 721.0
 
-[node name="voltar" type="Button" parent="." unique_id=984148876]
+[node name="voltar" type="Button" parent="."]
 offset_left = 17.0
 offset_top = 30.0
 offset_right = 82.0
 offset_bottom = 72.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_x8mww")
 
-[node name="CheckButton" parent="." unique_id=222838759 instance=ExtResource("4_b0aun")]
+[node name="CheckButton" parent="." instance=ExtResource("4_b0aun")]
 offset_left = 1178.0
 offset_top = 22.0
 offset_right = 1260.0
 offset_bottom = 87.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2057406828]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(639.5, 380)
 scale = Vector2(0.92474043, 0.9881422)
 texture = ExtResource("2_02xe8")
 
-[node name="LevelComponent" parent="." unique_id=206952409 instance=ExtResource("5_xv4fl")]
+[node name="LevelComponent" parent="." instance=ExtResource("5_xv4fl")]
 position = Vector2(305, 140)
 scale = Vector2(0.8, 0.8)
 texto_personalizado = "Nivel 1"
@@ -42,13 +42,13 @@ imagem_path = "uid://dd64fb2t3lpor"
 botao_sobre_imagem = false
 mundo_aberto = true
 
-[node name="LevelComponent2" parent="." unique_id=154001582 instance=ExtResource("5_xv4fl")]
+[node name="LevelComponent2" parent="." instance=ExtResource("5_xv4fl")]
 position = Vector2(614, 604)
 scale = Vector2(0.8, 0.8)
 texto_personalizado = "Nivel 2"
 imagem_path = "uid://dgagg04ntaddq"
 
-[node name="LevelComponent3" parent="." unique_id=793565065 instance=ExtResource("5_xv4fl")]
+[node name="LevelComponent3" parent="." instance=ExtResource("5_xv4fl")]
 position = Vector2(940, 131)
 scale = Vector2(0.8, 0.8)
 texto_personalizado = "Nivel 3"
