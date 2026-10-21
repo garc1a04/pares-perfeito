@@ -4,13 +4,18 @@ signal card_wrong(card: Node2D)
 signal card_right(card: Node2D)
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var silhueta: Sprite2D = $silhueta
 @export_file("*.png", "*.jpg") var caminho_da_imagem: String
+@export_file("*.png", "*.jpg", "*.jpeg") var caminho_da_imagem_silhueta: String
 @export var order: int
 var carta_no_slot: Node2D = null
 
 func _ready() -> void:
 	if caminho_da_imagem != "":
 		sprite.texture = load(caminho_da_imagem)
+	if caminho_da_imagem_silhueta != "":
+		silhueta.texture = load(caminho_da_imagem_silhueta)
+
 var has_card: bool: 
 	get: 
 		return carta_no_slot != null

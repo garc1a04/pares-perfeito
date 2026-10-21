@@ -22,7 +22,7 @@ enum Level {
 	INTRUSA = 5
 }
 
-@export var nivel_atual: Level = Level.DO_ZERO
+@export var nivel_atual: Level = Level.SILHUETA
 @onready var voltar: Button = $Personagem/voltar
 
 # --- Variáveis de Controle de Fluidez e Animação ---
@@ -67,8 +67,9 @@ func configurar_nivel_1():
 
 func configurar_nivel_2():
 	for c in placeholders.get_children():
-		c.visible = true 
-		c.sprite.visible = true
+		c.visible = true
+		c.sprite.visible = false
+		c.silhueta.visible = true
 		c.sprite.modulate.a = 0.3
 
 func configurar_nivel_3():

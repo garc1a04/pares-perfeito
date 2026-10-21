@@ -222,11 +222,11 @@ offset_bottom = 716.0
 [node name="CardOrder" type="Node2D" parent="table" unique_id=728004402]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="table/CardOrder" unique_id=1815899812]
-offset_left = 1.0
-offset_top = 602.0
-offset_right = 855.66675
-offset_bottom = 653.0
-scale = Vector2(1.5, 1.5)
+offset_left = 69.999985
+offset_top = 618.00006
+offset_right = 970.0
+offset_bottom = 669.00006
+scale = Vector2(1.25, 1.25)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
@@ -238,32 +238,51 @@ alignment = 1
 [node name="Placeholder" parent="table/CardOrder/HBoxContainer" unique_id=843928286 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
 offset_transform_scale = Vector2(1.5, 1.5)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+caminho_da_imagem = "uid://bl283hms8a2vt"
+caminho_da_imagem_silhueta = "uid://d4gj8k0j7xarg"
 order = 1
 
 [node name="Placeholder2" parent="table/CardOrder/HBoxContainer" unique_id=1397057898 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
 offset_transform_scale = Vector2(1.5, 1.5)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+caminho_da_imagem = "uid://c7gwfk7da2gld"
+caminho_da_imagem_silhueta = "uid://cw3rru228i1wy"
 order = 2
 
 [node name="Placeholder3" parent="table/CardOrder/HBoxContainer" unique_id=522031595 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
 offset_transform_scale = Vector2(1.5, 1.5)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+caminho_da_imagem = "uid://b4qww15ub34jp"
+caminho_da_imagem_silhueta = "uid://cwkqnktppbfqv"
 order = 3
 
 [node name="Placeholder4" parent="table/CardOrder/HBoxContainer" unique_id=1705551625 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
 offset_transform_scale = Vector2(1.5, 1.5)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+caminho_da_imagem = "uid://dkpn6shk7llfc"
+caminho_da_imagem_silhueta = "uid://r3ox5fsps6i1"
 order = 4
 
 [node name="Placeholder5" parent="table/CardOrder/HBoxContainer" unique_id=1420437738 instance=ExtResource("3_jo1vk")]
 layout_mode = 2
 offset_transform_scale = Vector2(1.5, 1.5)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+caminho_da_imagem = "uid://cwauaxi2bwme0"
+caminho_da_imagem_silhueta = "uid://cfinifvmj02wl"
 order = 5
+
+[node name="Placeholder6" parent="table/CardOrder/HBoxContainer" unique_id=1668577644 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://dw6prnrw637np"
+caminho_da_imagem_silhueta = "uid://coakohaq4fjhv"
+order = 6
+
+[node name="Placeholder7" parent="table/CardOrder/HBoxContainer" unique_id=469517495 instance=ExtResource("3_jo1vk")]
+layout_mode = 2
+offset_transform_scale = Vector2(1.5, 1.5)
+caminho_da_imagem = "uid://b3hkhnc21t686"
+caminho_da_imagem_silhueta = "uid://jyimxyuu323c"
+order = 7
 
 [node name="CardManager" type="Node2D" parent="table" unique_id=996822690]
 position = Vector2(-1, -1)
@@ -271,46 +290,53 @@ scale = Vector2(2, 2)
 script = ExtResource("1_f17rd")
 
 [node name="Card" parent="table/CardManager" unique_id=390372249 instance=ExtResource("1_014g0")]
-position = Vector2(97.5, 199.49998)
-scale = Vector2(0.75, 0.75)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+position = Vector2(40, 224.5)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://bl283hms8a2vt"
 order = 1
-text = "Pego a escova"
 
 [node name="Card2" parent="table/CardManager" unique_id=461901354 instance=ExtResource("1_014g0")]
-position = Vector2(213, 198.00002)
-scale = Vector2(0.75, 0.75)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+position = Vector2(133.5, 222.50002)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://c7gwfk7da2gld"
 order = 2
-text = "Pego a pasta"
 
 [node name="Card3" parent="table/CardManager" unique_id=1960622146 instance=ExtResource("1_014g0")]
-position = Vector2(327, 198.99998)
-scale = Vector2(0.75, 0.75)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+position = Vector2(225.00002, 221.5)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://b4qww15ub34jp"
 order = 3
-text = "Coloco a pasta na escova"
 
 [node name="Card4" parent="table/CardManager" unique_id=145777084 instance=ExtResource("1_014g0")]
-position = Vector2(435.50015, 198.49997)
-scale = Vector2(0.75, 0.75)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+position = Vector2(314.50003, 225.00002)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://dkpn6shk7llfc"
 order = 4
-text = "molho a escova"
 
 [node name="Card5" parent="table/CardManager" unique_id=812990374 instance=ExtResource("1_014g0")]
-position = Vector2(551, 199.5)
-scale = Vector2(0.75, 0.75)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
+position = Vector2(413, 222.5)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://62kutn1jl41n"
 order = 5
-text = "escovo os dentes"
 
-[node name="Card6" parent="table/CardManager" unique_id=1349786661 instance=ExtResource("1_014g0")]
+[node name="Card6" parent="table/CardManager" unique_id=919881012 instance=ExtResource("1_014g0")]
+position = Vector2(508.50003, 227.50002)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://dw6prnrw637np"
+order = 6
+
+[node name="Card7" parent="table/CardManager" unique_id=722799181 instance=ExtResource("1_014g0")]
+position = Vector2(592, 226.50002)
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://b3hkhnc21t686"
+order = 7
+
+[node name="Card8" parent="table/CardManager" unique_id=1349786661 instance=ExtResource("1_014g0")]
 visible = false
 position = Vector2(575, 119)
-scale = Vector2(0.75, 0.75)
-caminho_da_imagem = "uid://cdl6kpj26iaqi"
-order = 6
+scale = Vector2(0.6, 0.6)
+caminho_da_imagem = "uid://c25yy0mmb4kkv"
+order = 8
 
 [connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder" to="." method="_on_qualquer_placeholder_card_wrong"]
@@ -322,4 +348,6 @@ order = 6
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder4" to="." method="_on_qualquer_placeholder_card_wrong"]
 [connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_right"]
 [connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder5" to="." method="_on_qualquer_placeholder_card_wrong"]
+[connection signal="card_right" from="table/CardOrder/HBoxContainer/Placeholder6" to="." method="_on_qualquer_placeholder_card_right"]
+[connection signal="card_wrong" from="table/CardOrder/HBoxContainer/Placeholder6" to="." method="_on_qualquer_placeholder_card_wrong"]
 [connection signal="win" from="table/CardManager" to="." method="_on_card_manager_win"]
